@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Neo Epic – معاينة واجهة متجر ألعاب</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__left">⚡ عروض رقمية فورية + تسليم تلقائي</div>
+      <div class="topbar__right">
+        <a href="#" class="link">تتبع الطلب</a>
+        <span class="dot"></span>
+        <a href="#" class="link">الدعم</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__row">
+      <a class="brand" href="#">
+        <span class="brand__mark"></span>
+        <span class="brand__name">GameHub</span>
+      </a>
+
+      <div class="search" role="search">
+        <input id="q" type="search" placeholder="ابحث عن لعبة أو اشتراك…"/>
+        <button class="iconbtn" id="clearSearch" aria-label="مسح البحث">✕</button>
+      </div>
+
+      <nav class="nav" aria-label="القائمة">
+        <a href="#featured">مميز</a>
+        <a href="#catalog">الكتالوج</a>
+        <a href="#deals">عروض</a>
+        <a href="#faq">الأسئلة</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="iconbtn" id="themeToggle" aria-label="تبديل الثيم">☾</button>
+        <button class="iconbtn" id="openCart" aria-label="السلة">
+          🛒 <span class="badge" id="cartCount">0</span>
+        </button>
+        <button class="btn btn--ghost" id="openLogin">تسجيل</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <div class="chip">متجر رقمي للألعاب والاشتراكات</div>
+        <h1>واجهة داكنة + نيون<br/>تجربة شراء سريعة</h1>
+        <p>ابحث، فلتر، شاهد العرض السريع، ثم أضف للسلة—كل شيء بدون تعقيد.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#catalog">تسوق الآن</a>
+          <button class="btn btn--soft" id="openQuickTour">جولة سريعة</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="stat__v">+20K</div><div class="stat__k">عميل</div></div>
+          <div class="stat"><div class="stat__v">10 ث</div><div class="stat__k">تسليم</div></div>
+          <div class="stat"><div class="stat__v">24/7</div><div class="stat__k">دعم</div></div>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <div class="heroCard" id="heroCard">
+          <div class="heroCard__top">
+            <div class="heroCard__title">الأكثر مبيعًا هذا الأسبوع</div>
+            <div class="heroCard__pill">خصم 15%</div>
+          </div>
+
+          <div class="heroCarousel" id="heroCarousel" aria-label="سلايدر">
+            <!-- slides injected by JS -->
+          </div>
+
+          <div class="heroCard__controls">
+            <button class="iconbtn" id="prevHero" aria-label="السابق">‹</button>
+            <div class="dots" id="heroDots"></div>
+            <button class="iconbtn" id="nextHero" aria-label="التالي">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>مجموعات مميزة</h2>
+        <div class="sectionHead__right">
+          <button class="btn btn--soft" data-filter="all">الكل</button>
+          <button class="btn btn--soft" data-filter="games">ألعاب</button>
+          <button class="btn btn--soft" data-filter="subs">اشتراكات</button>
+          <button class="btn btn--soft" data-filter="cards">بطاقات</button>
+        </div>
+      </div>
+
+      <div class="rail" id="featuredRail">
+        <!-- cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>الكتالوج</h2>
+        <div class="sectionHead__right">
+          <div class="select">
+            <select id="sort">
+              <option value="popular">الأكثر شعبية</option>
+              <option value="price_asc">السعر: الأقل</option>
+              <option value="price_desc">السعر: الأعلى</option>
+              <option value="new">الأحدث</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- product cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Deals -->
+  <section class="section" id="deals">
+    <div class="container">
+      <div class="deal">
+        <div class="deal__copy">
+          <h3>كوبون الأسبوع: <span class="mono">NEO15</span></h3>
+          <p>خصم 15% على منتجات مختارة. فعّل الكوبون عند الدفع.</p>
+          <div class="deal__cta">
+            <button class="btn btn--primary" id="copyCoupon">نسخ الكوبون</button>
+            <div class="countdown" id="countdown"></div>
+          </div>
+        </div>
+        <div class="deal__art" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>الأسئلة الشائعة</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+        <details open>
+          <summary>كيف يتم تسليم المنتجات الرقمية؟</summary>
+          <div class="a">يتم عرض الكود/الرابط فور الدفع في صفحة الطلب، ويمكن إرساله أيضًا عبر البريد.</div>
+        </details>
+        <details>
+          <summary>هل يوجد استرجاع للمنتجات الرقمية؟</summary>
+          <div class="a">حسب نوع المنتج وحالته. بإمكانك ضبط سياسة المتجر من لوحة التحكم.</div>
+        </details>
+        <details>
+          <summary>كيف أتواصل مع الدعم؟</summary>
+          <div class="a">من زر الدعم أو عبر واتساب/البريد حسب ما تضيفه في المتجر.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="brand brand--footer">
+          <span class="brand__mark"></span>
+          <span class="brand__name">GameHub</span>
+        </div>
+        <p>ثيم داكن مبتكر مناسب لمتاجر الألعاب الرقمية على سلة.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>روابط</h4>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+        <a href="#">الاسترجاع</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>التواصل</h4>
+        <a href="#">واتساب</a>
+        <a href="#">تويتر</a>
+        <a href="#">الدعم</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>النشرة</h4>
+        <div class="newsletter">
+          <input type="email" placeholder="بريدك الإلكتروني"/>
+          <button class="btn btn--primary">اشتراك</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> GameHub</span>
+      <span class="muted">Built with CSS + JS</span>
+    </div>
+  </footer>
+
+  <!-- Drawer: Cart -->
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-close="cart"></div>
+    <div class="drawer__panel" role="dialog" aria-label="السلة">
+      <div class="drawer__head">
+        <h3>سلتك</h3>
+        <button class="iconbtn" data-close="cart" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="drawer__body" id="cartItems"></div>
+      <div class="drawer__foot">
+        <div class="row">
+          <span class="muted">الإجمالي</span>
+          <span class="mono" id="cartTotal">0 ر.س</span>
+        </div>
+        <button class="btn btn--primary btn--full" id="checkout">إتمام الشراء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Quick View -->
+  <div class="modal" id="quickModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="quick"></div>
+    <div class="modal__panel" role="dialog" aria-label="عرض سريع">
+      <button class="iconbtn modal__close" data-close="quick" aria-label="إغلاق">✕</button>
+      <div class="modal__grid">
+        <div class="modal__img" id="qmImg"></div>
+        <div class="modal__info">
+          <div class="chip" id="qmTag"></div>
+          <h3 id="qmTitle"></h3>
+          <p class="muted" id="qmDesc"></p>
+          <div class="priceRow">
+            <div class="price mono" id="qmPrice"></div>
+            <div class="pill" id="qmMeta"></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn--primary" id="qmAdd">إضافة للسلة</button>
+            <button class="btn btn--soft" data-close="quick">متابعة التسوق</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
